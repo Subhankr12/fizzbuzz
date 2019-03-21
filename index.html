@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>FizzBuzz(css)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>
+      <div>FIZZBUZZ</div>
+    </h1>
+    <div id="box">
+      <input id="box1" /> <button onclick="printlist()">GO</button>
+    </div>
+    <ul id="items"></ul>
+
+    <script>
+      function printlist() {
+        var len = document.getElementById("box1").value;
+        var list_item = ` `;
+        var i;
+        let start = new Date().getTime();
+
+        for (i = 1; i <= len; i++) {
+          if (i % 3 == 0 && i % 5 == 0)
+            list_item = `${list_item}<li class="fizzbuzz">fizzbuzz</li>`;
+          else if (i % 3 == 0)
+            list_item = `${list_item}<li class="fizz">fizz</li>`;
+          else if (i % 5 == 0)
+            list_item = `${list_item}<li class="buzz">buzz</li>`;
+          else list_item = `${list_item}<li>${i}</li>`;
+        }
+
+        document.getElementById("items").innerHTML = list_item;
+
+        let end = new Date().getTime();
+        console.log(end - start);
+      }
+    </script>
+  </body>
+</html>
